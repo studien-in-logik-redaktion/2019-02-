@@ -29,7 +29,7 @@
 %    2 设定页面布局
 %-------------------------------------------------------------------------%
 \usepackage[total={130mm,203mm}, top=28.3mm, headheight=20pt, headsep=4truemm,bindingoffset=1.5cm]{geometry} % 调整版式 （bindingoffset=1.5cm 选项使得奇数页靠右，偶数页靠左）
-\renewcommand{\baselinestretch}{1.28}                                      % 定义全文行间距
+\renewcommand{\baselinestretch}{1.3}                                      % 定义全文行间距
 \parindent 2em                                                           % 定义全文段落首行缩进两个中文字符
 \renewcommand{\footnotemargin}{2em}
 
@@ -99,8 +99,8 @@
    {   %\@date \setcounter{footnote}{-1}
 \let\@makefnmark\relax\footnotetext{%
    {\ifthenelse{\equal{\myarticletype}{original}}{\printauthors}{}}%
-   \ifthenelse{\equal{\mygrants}{null}}{}{\newline　\textbf{基金项目：}\mygrants}
-   \ifthenelse{\equal{\mythanks}{null}}{}{　　\textbf{致　　谢：}\mythanks}
+   \ifthenelse{\equal{\mygrants}{null}}{}{\newline　　\textbf{基金项目：}\mygrants}
+   \ifthenelse{\equal{\mythanks}{null}}{}{\newline　　\textbf{致　　谢：}\mythanks}
    }
    } 
   
@@ -712,8 +712,6 @@ references = {参考文献}, % = \refname
 
 \DeclareFieldFormat[inproceedings,incollection]{pages}{pp. #1}
 
-\DeclareFieldFormat[inproceedings,incollection]{volume}{\textbf{Vol.#1}}
-
 %定义inproceedings格式
 \DeclareBibliographyDriver{inproceedings}{% 					
 	\printnames{author}%
@@ -872,6 +870,6 @@ references = {参考文献}, % = \refname
 	\setunit{\cncomma}%
 	\printfield{pages}%
 	\setunit{\cncomma}%
-	\printfield{note}%
+	\printfield{url}%
 	\finentry%
 }
