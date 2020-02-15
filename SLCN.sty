@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                      %%
 %%                    《逻辑学研究》中文格式模板                         	%%
 %%                                                                      %%
@@ -29,7 +29,7 @@
 %    2 设定页面布局
 %-------------------------------------------------------------------------%
 \usepackage[total={130mm,203mm}, top=28.3mm, headheight=20pt, headsep=4truemm,bindingoffset=1.5cm]{geometry} % 调整版式 （bindingoffset=1.5cm 选项使得奇数页靠右，偶数页靠左）
-\renewcommand{\baselinestretch}{1.28}                                      % 定义全文行间距
+\renewcommand{\baselinestretch}{1.26}                                      % 定义全文行间距
 \parindent 2em                                                           % 定义全文段落首行缩进两个中文字符
 \renewcommand{\footnotemargin}{2em}
 
@@ -133,7 +133,7 @@
 \theoremstyle{remark}
 \newtheorem{rem}{\protect\remarkname}
 \theoremstyle{defn}
-\newtheorem{example}{\protect\examplename}
+%\newtheorem{example}[thm]{\protect\examplename}
 \theoremstyle{plain}
 \newtheorem{lem}{\protect\lemmaname}
 \theoremstyle{plain}
@@ -618,7 +618,7 @@
 %-------------------------------------------------------------------------%
 %    9.1 全局处理
 %-------------------------------------------------------------------------%
-\usepackage[firstinits=true,maxcitenames=3,maxbibnames=99,backend = biber, style=caspervector,utf8, sorting=nyt]{biblatex}	
+\usepackage[firstinits=false,maxcitenames=3,maxbibnames=99,backend = biber, style=caspervector,utf8, sorting=nyt]{biblatex}	
 \renewcommand{\bibfont}{\normalfont\small}					%字体大小
 \defbibenvironment{bibliography}						%修改行距
   {\list
@@ -674,7 +674,7 @@ references = {参考文献}, % = \refname
 %定义article格式
 \DeclareFieldFormat[article,inproceedings,report]{title}{``\MakeSentenceCase{#1}''}	
 \DeclareFieldFormat[article]{pages}{#1}			%消除article的pp.
-\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat*{volume}{\mkbibbold{#1}}
 \DeclareFieldFormat*{number}{\mkbibbold{(#1)}}
 
 \newbibmacro*{volume+number}{%
@@ -704,14 +704,14 @@ references = {参考文献}, % = \refname
 	\printfield{year}%
 	\newunit
 	\printfield{title}%
-	\newunit%
-	\printfield{note}%
 	\newunit
 	\usebibmacro{publisher+location}%
+	\newunit%
+	\printfield{note}%
 	\finentry}
 
 \DeclareFieldFormat[inproceedings,incollection]{pages}{pp. #1}
-\DeclareFieldFormat[inproceedings,incollection,book]{volume}{\mkbibbold{vol. #1}}
+
 %定义inproceedings格式
 \DeclareBibliographyDriver{inproceedings}{% 					
 	\printnames{author}%
@@ -865,8 +865,6 @@ references = {参考文献}, % = \refname
 	\setunit{\cncomma}%
 	\printfield{year}%
 	\usebibmacro{cn_volume+number}%
-	\setunit{\cncomma}%
-	\printfield{note}%
 	\setunit{\cncomma}%
 	\usebibmacro{cn_publisher+location}%
 	\setunit{\cncomma}%
