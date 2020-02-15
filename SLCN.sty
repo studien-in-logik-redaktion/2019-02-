@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                      %%
 %%                    《逻辑学研究》中文格式模板                         	%%
 %%                                                                      %%
@@ -98,9 +98,9 @@
    \vskip 1em%定义作者信息脚注生成
    {   %\@date \setcounter{footnote}{-1}
 \let\@makefnmark\relax\footnotetext{%
-   {\ifthenelse{\equal{\myarticletype}{original}}{\printauthors}{}}%
+    {\ifthenelse{\equal{\myarticletype}{original}}{\printauthors}{}}%
    \ifthenelse{\equal{\mygrants}{null}}{}{\newline　　\textbf{基金项目：}\mygrants}
-   \ifthenelse{\equal{\mythanks}{null}}{}{\newline　　\textbf{致　　谢：}\mythanks}
+   \ifthenelse{\equal{\mythanks}{null}}{\vspace{-1em}}{　　\textbf{致　　谢：}\mythanks}
    }
    } 
   
@@ -133,7 +133,7 @@
 \theoremstyle{remark}
 \newtheorem{rem}{\protect\remarkname}
 \theoremstyle{defn}
-\newtheorem{example}{\protect\examplename}
+%\newtheorem{example}[thm]{\protect\examplename}
 \theoremstyle{plain}
 \newtheorem{lem}{\protect\lemmaname}
 \theoremstyle{plain}
@@ -618,7 +618,7 @@
 %-------------------------------------------------------------------------%
 %    9.1 全局处理
 %-------------------------------------------------------------------------%
-\usepackage[firstinits=false,maxcitenames=3,maxbibnames=99,backend = biber, style=caspervector,utf8, sorting=nyt]{biblatex}	
+\usepackage[firstinits=true,maxcitenames=3,maxbibnames=99,backend = biber, style=caspervector,utf8, sorting=nyt]{biblatex}	
 \renewcommand{\bibfont}{\normalfont\small}					%字体大小
 \defbibenvironment{bibliography}						%修改行距
   {\list
@@ -672,9 +672,9 @@ references = {参考文献}, % = \refname
  }
 
 %定义article格式
-\DeclareFieldFormat[article,inproceedings,report]{title}{``\MakeSentenceCase{#1}''}	
+\DeclareFieldFormat[article,inproceedings,incollection,report]{title}{``\MakeSentenceCase{#1}''}	
 \DeclareFieldFormat[article]{pages}{#1}			%消除article的pp.
-\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat*{volume}{\mkbibbold{#1}}
 \DeclareFieldFormat*{number}{\mkbibbold{(#1)}}
 
 \newbibmacro*{volume+number}{%
@@ -704,14 +704,16 @@ references = {参考文献}, % = \refname
 	\printfield{year}%
 	\newunit
 	\printfield{title}%
-		\newunit%
-	\printfield{note}%
 	\newunit
 	\usebibmacro{publisher+location}%
+	\newunit%
+	\printfield{note}%
 	\finentry}
 
 \DeclareFieldFormat[inproceedings,incollection]{pages}{pp. #1}
-\DeclareFieldFormat[inproceedings,incollection,book]{volume}{\mkbibbold{vol. #1}}
+
+\DeclareFieldFormat[inproceedings,incollection]{volume}{\textbf{Vol.#1}}
+
 %定义inproceedings格式
 \DeclareBibliographyDriver{inproceedings}{% 					
 	\printnames{author}%
@@ -865,8 +867,6 @@ references = {参考文献}, % = \refname
 	\setunit{\cncomma}%
 	\printfield{year}%
 	\usebibmacro{cn_volume+number}%
-	\setunit{\cncomma}%
-	\printfield{note}%
 	\setunit{\cncomma}%
 	\usebibmacro{cn_publisher+location}%
 	\setunit{\cncomma}%
