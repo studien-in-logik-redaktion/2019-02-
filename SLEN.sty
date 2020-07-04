@@ -23,7 +23,7 @@
 %    2 设定页面布局
 %-------------------------------------------------------------------------%
 \usepackage[total={130mm,203mm}, top=28.3mm, headheight=20pt, headsep=4truemm,bindingoffset=1.5cm]{geometry}% 调整版式
-\renewcommand{\baselinestretch}{1.04}				% 定义全文行间距
+\renewcommand{\baselinestretch}{1.05}				% 定义全文行间距
 \parindent 21pt							   % 定义全文段落首行缩进两个中文字符
 
 %-------------------------------------------------------------------------%
@@ -200,6 +200,9 @@
 
 
 \DeclareFieldFormat[inproceedings,incollection]{title}{``\MakeSentenceCase{#1}''}	
+\DeclareFieldFormat[inproceedings,incollection]{volume}{\textbf{vol.\,#1}}
+
+\DeclareFieldFormat[inproceedings,incollection]{pages}{pp.\,#1}
 
 %定义inproceedings格式
 \DeclareBibliographyDriver{inproceedings}{% 					
@@ -412,8 +415,8 @@
 \newtheorem{remark}{{\bf{Remark}}}
 \newtheorem*{remark*}{{\bf{Remark}}}
 
-\newtheorem{fact}[theorem]{{\bf{Fact}}}
-\newtheorem*{fact*}{{\bf{Fact}}}
+%\newtheorem{fact}[theorem]{{\bf{Fact}}}
+%\newtheorem*{fact*}{{\bf{Fact}}}
 
 %-------------------------------------------------------------------------%
 %    7 定义证明样式
@@ -496,7 +499,7 @@
 \newcommand{\printoneauthors}%
 {%\author
 	{%
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\myfirstauthor}}{\myfirstauthor\quad}
+        \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\myfirstauthor}}}{\textrm{\myfirstauthor}\quad}
 		\begin{minipage}[t]{49.9em}{\myfirstaffiliation\\[-0.2em]\myfirstemail}\end{minipage}\\[0.5em]
 	}%
 }
@@ -505,9 +508,9 @@
 \newcommand{\printtwoauthors}%
 {%\author
 	{%
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\myfirstauthor}}{\myfirstauthor\quad}
+        \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\myfirstauthor}}}{\textrm{\myfirstauthor}\quad}
 		\begin{minipage}[t]{49.9em}{\myfirstaffiliation\\[-0.2em]\myfirstemail}\end{minipage}\\[0.5em]
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\mysecondauthor}}{\mysecondauthor\quad}
+            \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\mysecondauthor}}}{\textrm{\mysecondauthor}\quad}
 		\begin{minipage}[t]{49.9em}{\mysecondaffiliation\\[-0.2em]\mysecondemail}\end{minipage}\\[0.5em]	
 	}%
 }
@@ -516,11 +519,11 @@
 \newcommand{\printthreeauthors}%
 {%\author
 	{%
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\myfirstauthor}}{\myfirstauthor\quad}
+        \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\myfirstauthor}}}{\textrm{\myfirstauthor}\quad}
 		\begin{minipage}[t]{49.9em}{\myfirstaffiliation\\[-0.2em]\myfirstemail}\end{minipage}\\[0.5em]
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\mysecondauthor}}{\mysecondauthor\quad}
+            \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\mysecondauthor}}}{\textrm{\mysecondauthor}\quad}
 		\begin{minipage}[t]{49.9em}{\mysecondaffiliation\\[-0.2em]\mysecondemail}\end{minipage}\\[0.5em]	
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\mythirdauthor}}{\mythirdauthor\quad}
+            \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\mythirdauthor}}}{\textrm{\mythirdauthor}\quad}
 		\begin{minipage}[t]{49.9em}{\mythirdaffiliation\\[-0.2em]\mythirdemail}\end{minipage}\\[0.5em]	
     }%
 }
@@ -529,13 +532,13 @@
 \newcommand{\printfourauthors}%
 {%\author
 	{%
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\myfirstauthor}}{\myfirstauthor\quad}
+        \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\myfirstauthor}}}{\textrm{\myfirstauthor}\quad}
 		\begin{minipage}[t]{49.9em}{\myfirstaffiliation\\[-0.2em]\myfirstemail}\end{minipage}\\[0.5em]
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\mysecondauthor}}{\mysecondauthor\quad}
+            \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\mysecondauthor}}}{\textrm{\mysecondauthor}\quad}
 		\begin{minipage}[t]{49.9em}{\mysecondaffiliation\\[-0.2em]\mysecondemail}\end{minipage}\\[0.5em]	
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\mythirdauthor}}{\mythirdauthor\quad}
+            \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\mythirdauthor}}}{\textrm{\mythirdauthor}\quad}
 		\begin{minipage}[t]{49.9em}{\mythirdaffiliation\\[-0.2em]\mythirdemail}\end{minipage}\\[0.5em]	
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\myfourthauthor}}{\myfourthauthor\quad}	
+            \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\myfourthauthor}}}{\textrm{\myfourthauthor}\quad}	
 		\begin{minipage}[t]{49.9em}{\myfourthaffiliation\\[-0.2em]\myfourthemail}\end{minipage}\\[0.5em]	
     }%
 }
@@ -544,14 +547,15 @@
 \newcommand{\printfiveauthors}%
 {%\author
 	{%
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\myfirstauthor}}{\myfirstauthor\quad}
+        \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\myfirstauthor}}}{\textrm{\myfirstauthor}\quad}
 		\begin{minipage}[t]{49.9em}{\myfirstaffiliation\\[-0.2em]\myfirstemail}\end{minipage}\\[0.5em]
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\mysecondauthor}}{\mysecondauthor\quad}
+            \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\mysecondauthor}}}{\textrm{\mysecondauthor}\quad}
 		\begin{minipage}[t]{49.9em}{\mysecondaffiliation\\[-0.2em]\mysecondemail}\end{minipage}\\[0.5em]	
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\mythirdauthor}}{\mythirdauthor\quad}
+            \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\mythirdauthor}}}{\textrm{\mythirdauthor}\quad}
 		\begin{minipage}[t]{49.9em}{\mythirdaffiliation\\[-0.2em]\mythirdemail}\end{minipage}\\[0.5em]	
-		\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\myfourthauthor}}{\myfourthauthor\quad}	
-		\begin{minipage}[t]{49.9em}{\myfourthaffiliation\\[-0.2em]\myfourthemail}\end{minipage}\\[0.5em]				\ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\myfifthauthor}}{\myfifthauthor\quad}	
+            \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\myfourthauthor}}}{\textrm{\myfourthauthor}\quad}	
+		\begin{minipage}[t]{49.9em}{\myfourthaffiliation\\[-0.2em]\myfourthemail}\end{minipage}\\[0.5em]
+            \ifthenelse{\equal{\alignname}{yes}}{\makebox[\nameindent][l]{\textrm{\myfifthauthor}}}{\textrm{\myfifthauthor}\quad}	
 		\begin{minipage}[t]{49.9em}{\myfifthaffiliation\\[-0.2em]\myfifthemail}\end{minipage}\\[0.5em]
     }%
 }
@@ -691,8 +695,8 @@ No.~\myissnumber~(\mypubyear):~\myfirstpage--\mylastpage \\\mypii}
 	\begin{center}
 		\renewcommand{\baselinestretch}{1.3}                              % 重新定义行间距
 		\zihao{3}\mytitleCN\\[4mm]%打印标题
-		%重写作者
-		\large 
+		%重写作者，显示在标题下方，判断原则为：如果第n作者非空，那么显示；这要求我们每次清空所有作者。
+		\large \kaishu
 		\myfirstauthorCN%
 		\ifthenelse{\equal{\mysecondauthorCN}{null}}%
 			{}{\hspace{2em}\mysecondauthorCN}%
@@ -718,14 +722,17 @@ No.~\myissnumber~(\mypubyear):~\myfirstpage--\mylastpage \\\mypii}
 
 %中文摘要页打印作者信息，新模板
 
-\newcommand{\nameindentCN}{4.5em}
-\newcommand{\alignnameCN}{yes} %设置是否需要对齐名字
 
-%一个作者的情况
+\newcommand{\alignnameCN}{yes} 		%设置是否需要对齐名字，参数yes。除此以外都是不对齐。
+%关于是否设置对齐：	如果作者都是中文名字/中文式名字（e.g.白求恩），那么设置对齐。
+%						如果作者是外文名字，那么一般不设置，除非长度相近。此时需要修改下面的长度
+\newcommand{\nameindentCN}{4.5em} 	%如果需要对齐名字，那么此距离生效。默认三字对应4.5，可以适当加大，比如，四字对应5.5
+
+%一个作者的情况；if 判断用于区分是否需要对齐，minipage 部分输出地址和邮箱信息。
 \newcommand{\printoneauthorsCN}%
 {%\authorCN
 	{%
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\myfirstauthorCN}}{\myfirstauthorCN\quad}
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\myfirstauthorCN}}}{\textit{\myfirstauthorCN}\quad}
 		\begin{minipage}[t]{49.9em}{\myfirstaffiliationCN\\[-0.2em]\myfirstemail}\end{minipage}\\[0.5em]
 	}%
 }
@@ -734,9 +741,9 @@ No.~\myissnumber~(\mypubyear):~\myfirstpage--\mylastpage \\\mypii}
 \newcommand{\printtwoauthorsCN}%
 {%\authorCN
 	{%
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\myfirstauthorCN}}{\myfirstauthorCN\quad}
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\myfirstauthorCN}}}{\textit{\myfirstauthorCN}\quad}
 		\begin{minipage}[t]{49.9em}{\myfirstaffiliationCN\\[-0.2em]\myfirstemail}\end{minipage}\\[0.5em]
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\mysecondauthorCN}}{\mysecondauthorCN\quad}
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\mysecondauthorCN}}}{\textit{\mysecondauthorCN}\quad}
 		\begin{minipage}[t]{49.9em}{\mysecondaffiliationCN\\[-0.2em]\mysecondemail}\end{minipage}\\[0.5em]	
 	}%
 }
@@ -745,11 +752,11 @@ No.~\myissnumber~(\mypubyear):~\myfirstpage--\mylastpage \\\mypii}
 \newcommand{\printthreeauthorsCN}%
 {%\authorCN
 	{%
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\myfirstauthorCN}}{\myfirstauthorCN\quad}
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\myfirstauthorCN}}}{\textit{\myfirstauthorCN}\quad}
 		\begin{minipage}[t]{49.9em}{\myfirstaffiliationCN\\[-0.2em]\myfirstemail}\end{minipage}\\[0.5em]
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\mysecondauthorCN}}{\mysecondauthorCN\quad}
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\mysecondauthorCN}}}{\textit{\mysecondauthorCN}\quad}
 		\begin{minipage}[t]{49.9em}{\mysecondaffiliationCN\\[-0.2em]\mysecondemail}\end{minipage}\\[0.5em]	
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\mythirdauthorCN}}{\mythirdauthorCN\quad}
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\mythirdauthorCN}}}{\textit{\mythirdauthorCN}\quad}
 		\begin{minipage}[t]{49.9em}{\mythirdaffiliationCN\\[-0.2em]\mythirdemail}\end{minipage}\\[0.5em]	
     }%
 }
@@ -758,13 +765,13 @@ No.~\myissnumber~(\mypubyear):~\myfirstpage--\mylastpage \\\mypii}
 \newcommand{\printfourauthorsCN}%
 {%\authorCN
 	{%
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\myfirstauthorCN}}{\myfirstauthorCN\quad}
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\myfirstauthorCN}}}{\textit{\myfirstauthorCN}\quad}
 		\begin{minipage}[t]{49.9em}{\myfirstaffiliationCN\\[-0.2em]\myfirstemail}\end{minipage}\\[0.5em]
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\mysecondauthorCN}}{\mysecondauthorCN\quad}
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\mysecondauthorCN}}}{\textit{\mysecondauthorCN}\quad}
 		\begin{minipage}[t]{49.9em}{\mysecondaffiliationCN\\[-0.2em]\mysecondemail}\end{minipage}\\[0.5em]	
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\mythirdauthorCN}}{\mythirdauthorCN\quad}
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\mythirdauthorCN}}}{\textit{\mythirdauthorCN}\quad}
 		\begin{minipage}[t]{49.9em}{\mythirdaffiliationCN\\[-0.2em]\mythirdemail}\end{minipage}\\[0.5em]	
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\myfourthauthorCN}}{\myfourthauthorCN\quad}	
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\myfourthauthorCN}}}{\textit{\myfourthauthorCN}\quad}	
 		\begin{minipage}[t]{49.9em}{\myfourthaffiliationCN\\[-0.2em]\myfourthemail}\end{minipage}\\[0.5em]	
     }%
 }
@@ -773,14 +780,15 @@ No.~\myissnumber~(\mypubyear):~\myfirstpage--\mylastpage \\\mypii}
 \newcommand{\printfiveauthorsCN}%
 {%\authorCN
 	{%
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\myfirstauthorCN}}{\myfirstauthorCN\quad}
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\myfirstauthorCN}}}{\textit{\myfirstauthorCN}\quad}
 		\begin{minipage}[t]{49.9em}{\myfirstaffiliationCN\\[-0.2em]\myfirstemail}\end{minipage}\\[0.5em]
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\mysecondauthorCN}}{\mysecondauthorCN\quad}
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\mysecondauthorCN}}}{\textit{\mysecondauthorCN}\quad}
 		\begin{minipage}[t]{49.9em}{\mysecondaffiliationCN\\[-0.2em]\mysecondemail}\end{minipage}\\[0.5em]	
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\mythirdauthorCN}}{\mythirdauthorCN\quad}
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\mythirdauthorCN}}}{\textit{\mythirdauthorCN}\quad}
 		\begin{minipage}[t]{49.9em}{\mythirdaffiliationCN\\[-0.2em]\mythirdemail}\end{minipage}\\[0.5em]	
-		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\myfourthauthorCN}}{\myfourthauthorCN\quad}	
-		\begin{minipage}[t]{49.9em}{\myfourthaffiliationCN\\[-0.2em]\myfourthemail}\end{minipage}\\[0.5em]				\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\myfifthauthorCN}}{\myfifthauthorCN\quad}	
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\myfourthauthorCN}}}{\textit{\myfourthauthorCN}\quad}	
+		\begin{minipage}[t]{49.9em}{\myfourthaffiliationCN\\[-0.2em]\myfourthemail}\end{minipage}\\[0.5em]
+		\ifthenelse{\equal{\alignnameCN}{yes}}{\makebox[\nameindentCN][l]{\textit{\myfifthauthorCN}}}{\textit{\myfifthauthorCN}\quad}	
 		\begin{minipage}[t]{49.9em}{\myfifthaffiliationCN\\[-0.2em]\myfifthemail}\end{minipage}\\[0.5em]
     }%
 }
@@ -803,38 +811,6 @@ No.~\myissnumber~(\mypubyear):~\myfirstpage--\mylastpage \\\mypii}
 		}
 	}
 	\end{minipage}
-}
-
-
-
-\newcommand{\myoneauthorsCN}{ 
-\zihao{5}{\myfirstauthorCN}      % 只有一个作者的情况     
-}
-
-\newcommand{\mytwoauthorsCN}{ 
-\zihao{5}{\myfirstauthorCN}     % 有两个作者的情况    
- \hspace{1em}   {\mysecondauthorCN}   
-}
-
-\newcommand{\mythreeauthorsCN}{ 
-\zihao{5}{\myfirstauthorCN}     % 有三个作者的情况    
- \hspace{1em}   {\mysecondauthorCN}   
- \hspace{1em}    {\mythirdauthorCN}
-}
-
-\newcommand{\myfourauthorsCN}{ 
-\zihao{5}{\myfirstauthorCN}     % 有四个作者的情况    
- \hspace{1em}   {\mysecondauthorCN}   
- \hspace{1em}    {\mythirdauthorCN}
- \hspace{1em}    {\myfourthauthorCN} 
-}
-
-\newcommand{\myfiveauthorsCN}{ 
-\zihao{5}{\myfirstauthorCN}     % 有五个作者的情况    
- \hspace{1em}   {\mysecondauthorCN}   
- \hspace{1em}    {\mythirdauthorCN}
- \hspace{1em}    {\myfourthauthorCN} 
- \hspace{1em}    {\myfifthauthorCN}  
 }
 
 %-------------------------------------------------------------------------%
