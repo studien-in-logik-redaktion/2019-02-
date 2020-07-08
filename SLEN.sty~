@@ -127,8 +127,6 @@
   {\endlist}
   {\item}
 
-\renewcommand{\tablename}{Table}
-\renewcommand{\figurename}{Figure}
 %-------------------------------------------------------------------------%
 %    5.2 针对英文进行处理
 %-------------------------------------------------------------------------%
@@ -162,7 +160,7 @@
  }
 
 %定义article格式
-\DeclareFieldFormat[article,report]{title}{``\MakeSentenceCase{#1}''}	
+\DeclareFieldFormat[article]{title}{``\MakeSentenceCase{#1}''}	
 \DeclareFieldFormat[article]{pages}{#1}			%消除article的pp.
 \DeclareFieldFormat*{volume}{\mkbibbold{#1}}
 \DeclareFieldFormat*{number}{\mkbibbold{(#1)}}
@@ -697,8 +695,8 @@ No.~\myissnumber~(\mypubyear):~\myfirstpage--\mylastpage \\\mypii}
 	\begin{center}
 		\renewcommand{\baselinestretch}{1.3}                              % 重新定义行间距
 		\zihao{3}\mytitleCN\\[4mm]%打印标题
-		%作者中文，显示在标题下方，判断原则为：如果第n作者非空，那么显示；这要求我们每次清空所有作者。
-		{\large \kaishu
+		%重写作者，显示在标题下方，判断原则为：如果第n作者非空，那么显示；这要求我们每次清空所有作者。
+		\large \kaishu
 		\myfirstauthorCN%
 		\ifthenelse{\equal{\mysecondauthorCN}{null}}%
 			{}{\hspace{2em}\mysecondauthorCN}%
@@ -710,7 +708,7 @@ No.~\myissnumber~(\mypubyear):~\myfirstpage--\mylastpage \\\mypii}
 			{}{\hspace{2em}\myfifthauthorCN}%
 %		\ifthenelse{\equal{\mysixthauthorCN}{null}}%
 %			{}{\hspace{2em}\mysixthauthorCN}			
-	}\\[4mm]%用括号限制前面作者楷书的范围，或者在下方用 \bf 强制将摘要变黑
+	\\[4mm]%
 		{\bf \large{摘\hspace{2em}要}}
 	\end{center}
 	\renewcommand{\baselinestretch}{1.3}                                  % 重新定义行间距

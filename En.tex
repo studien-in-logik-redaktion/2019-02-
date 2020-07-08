@@ -210,8 +210,70 @@
 
 \section{Introduction}
 
+句号+参考文献的情况：
+
+This is a line.([1]) This is another line.
+
+This is a line.\,([1]) This is another line.
+
+This is a line.~([1]) This is another line.
+
+This is a line. ([1]) This is another line.
+
+\newpage
+ 逼近极限的情况：
+
+\newcommand{\something}{Lorem ipsum dol sit amet.  Aenean commodo ligula eget. }
 
 
+\something This is a line.''([1]) This is another line.
+
+\something This is a line.''\,([1]) This is another line.
+
+\something This is a line.''~([1]) This is another line.
+
+\something This is a line.'' ([1]) This is another line.
+
+\renewcommand{\something}{Lorem ipsum dolor sit amet.  Aenean commodo  eget. }
+
+
+\something This is a line.([1]) This is another line.
+
+\something This is a line.\,([1]) This is another line.
+
+\something This is a line.~([1]) This is another line.
+
+\something This is a line. ([1]) This is another line.
+
+\renewcommand{\something}{Lorem ipsum dolor sit ameter.  Aenean commodo liguan eget. }
+
+
+\something This is a line.([1]) This is another line.
+
+\something This is a line.\,([1]) This is another line.
+
+\something This is a line.~([1]) This is another line.
+
+\something This is a line. ([1]) This is another line.
+
+引号+参考文献的情况：
+
+``This is a line.''([1]) This is another line.
+
+``This is a line.''\,([1]) This is another line.
+
+``This is a line.''~([1])  This is another line.
+
+``This is a line.'' ([1]) This is another line.
+
+是否允许换行？
+
+脚注
+
+This is a line.\footnote{}  |
+
+\setcounter{footnote}{0}
+This is a line. \footnote{} |
 
 %-------------------------------------------------------------------------%
 %    2.7 References  
