@@ -1,0 +1,100 @@
+English
+English Article
+@article{aaa,
+	author		={aaa},
+	year		={aaa},
+	title		={aaa},
+	journal		={aaa},
+	volume		={aaa},
+	number		={aaa},
+	pages		={aaa},
+}
+
+
+English InpPoceedings/InCollections
+@inproceedings{aaa,
+	author		={aaa},
+	year		={aaa},
+	title		={aaa},
+	booktitle	={aaa},
+	editor		={aaa},
+	pages		={aaa},
+	address		={aaa},
+	publisher	={aaa},
+}
+
+English Book
+@book{aaa,
+	author		={aaa},
+	year		={aaa},
+	title		={aaa},
+	address		={aaa},
+	publisher	={aaa},
+}
+
+English Thesis
+@thesis{aaa,
+	author 		={aaa},
+	year		={aaa},
+	title		={aaa},
+	institution		={aaa}, %university
+	type		={PhD thesis}, %MA thesis
+}
+
+English Report
+@report{aaa,
+	author		={aaa},
+	year		={aaa},
+	title		={aaa},
+	type		={Report}, % Invited Talk, etc. 
+	note		={aaa}, % Institute
+}
+
+Chinese
+
+Chinese ARTICLE
+@misc{aaa, 
+    userf={cn},
+    author	={aaa},  
+    title	={aaa},
+    year	={aaa},
+    journal	={aaa},
+    number	={aaa},
+    pages	={aaa},
+}
+
+Chinese BOOK
+@misc{aaa, 
+    userf={cn},
+    author	={aaa},  
+    year	={aaa},
+    journal	={aaa},
+    address	={aaa},
+    publisher	={aaa}, 
+}
+
+Chinese InProceedings/InCollections
+@misc{aaa, 
+    userf={cn},
+    author	={aaa},  
+    title	={aaa},
+    year	={aaa},
+    editor	={aaa},
+    journal	={aaa},
+    address	={aaa},
+    publisher	={aaa}, 
+    pages	={aaa},
+}
+
+
+ 
+
+
+
+
+
+
+
+
+
+
