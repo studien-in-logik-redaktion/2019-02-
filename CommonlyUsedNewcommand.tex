@@ -1,0 +1,102 @@
+%Font Settings
+\setCJKsansfont[FakeBold=2]{KaiTi} % In case bold KaiTi is needed.
+
+
+
+%cite
+%ParenCite Raise
+\newcommand{\pcr}[1]{\raise.1em\hbox{[\cite{#1}]}}
+\newcommand{\prc}{\pcr} %typo
+
+%Closed PCR
+\newcommand{\cpcr}[1]{（\pcr{#1}）}
+%example 	\cpcr{cite}			->	（[3]）
+
+%cite+page
+\newcommand{\cp}[2]{（\pcr{#1}，第 #2 页）}
+%example 	\cp{cite}{4}	-> （[3]，第 4 页）
+
+%page+cite 
+\newcommand{\pc}[2]{\pcr{#2}， #1 }
+%example	\pc{第12页}{cite}		->	[3]，第12页
+%If someone writes （\cite[page]{cite}）, then turn it into （\pc{page}{cite}）
+%use a vim macro or substitute
+%  :%s/\\cite\[\(.\{-1,}\)\]/\\pc{\1} 
+
+%dash
+\newcommand{\cndash}{\raise0.1em\hbox{--}}
+
+
+
+%math
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\pair}[1]{\langle #1\rangle}
+\newcommand{\pari}{\pair} %typo
+
+\newcommand{\inv}{^{-1}}
+
+\newcommand{\quo}[1]{#1/{\equiv}} %quotient
+
+
+\newcommand{\fun}[3]{#1:#2\to #3}		%<FUNcion> from <Domain> to <Codomain>
+\newcommand{\homnat} [2]{\Phi_{#1,#2}} %hom nat. trans. in adjunction
+\newcommand{\homnati}[2]{\Psi_{#1,#2}} %hom nat. trans. Inverse
+\newcommand{\maps}[3]{#1:#2\mapsto #3} %<Function> MAPS <elem_in_dom> to <elem_in_cod>
+
+% Evil Category, which is in contradiction with the def above.
+\newcommand{\from}{\leftarrow}
+\newcommand{\fun}[3]{#3 \from #2:#1}
+\newcommand{\homnat} [2]{{_{#2,#1}}\Phi}
+\newcommand{\homnati}[2]{{_{#2,#1}}\Psi}
+\newcommand{\maps}[3]{#3\mapsfrom #2:#1}
+
+%Dirty enumerate
+
+\newcommand{\enu}[3]{#1{_1} #3\ldots #3 #1{_{#2}}} 
+%if #1 is A  #3 is ,  #2 is i   then it looks like A{_1} ,\ldots , A{_i}
+%subscripts are grouped s.t. they can be input into other macros
+	\newcommand{\enucm}[2]{\enu{#1}{#2}{,}} %cm for comma
+\newcommand{\subt}[3]{#1_{#2#3}} % #3 is left for the {_1} part in def of \enu above. 
+	\newcommand{\subenu}[4]{\enu{\subt #1#2}{#3}{#4}} 
+	% \subt BAx is B_{Ax}, where x is {_1}.
+		\newcommand{\subenucm}[3]{\subenu {#1}#2#3,}
+\newcommand{\compsubt}[3]{\comp{#1_{#2#3}}} %similar to \subt
+	\newcommand{\compsubenu}[4]{\enu{\compsubt #1#2}{#3}{#4}}
+		\newcommand{\compsubenucm}[3]{\enu{\compsubt #1#2}{#3},}
+
+%commands goes with \enu
+%representatives in quotient structures 
+\newcommand{\rep}[2]{[#1#2]}
+%example	\enucm{\rep a}n  	-> [a_1],\ldots,[a_n]
+%function in parenthesis
+\newcommand{\func}[2]{f(#1#2)}
+%example	\enucm{\func a}n 	-> f(a_1),\ldots,f(a_n)
+
+
+
+
+%Environment setting.
+
+\makeatletter
+\renewenvironment{quotation}
+               {\renewcommand{\baselinestretch}{1.2} \it
+               \list{}{\listparindent 2em%
+               \rightmargin=0em \leftmargin=2em
+                        \itemindent    \listparindent
+                        \rightmargin   \leftmargin
+                        \parsep        \z@ \@plus\p@}%
+                \item\relax}
+               {\endlist}
+               
+\renewenvironment{quote}
+               {\renewcommand{\baselinestretch}{1.2} \it
+               \list{}{\listparindent 0em%
+               \rightmargin=0em \leftmargin=2em
+                        \itemindent    \listparindent
+                        \rightmargin   \leftmargin
+                        \parsep        \z@ \@plus\p@}%
+                \item\relax}
+               {\endlist}
+               
+\makeatother 
+
