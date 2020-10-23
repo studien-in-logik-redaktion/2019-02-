@@ -16,6 +16,14 @@
 \newcommand{\cp}[2]{（\pcr{#1}，第 #2 页）}
 %example 	\cp{cite}{4}	-> （[3]，第 4 页）
 
+%cite+page
+\newcommand{\cpn}[2]{\pcr{#1}，第 #2 页}
+%example        \cpn{cite}{4}   -> [3]，第 4 页
+%If the auther use [3],<page> as supscript, and use 
+%two of them at the same place, the \cp command can't handle this 
+%because it will generate a ugly （[3]，第 4 页）（[5]，第 9 页）
+%So we have to use \cnparen{\cpn{}{}；\cpn{}{}} to deal with this
+
 %page+cite 
 \newcommand{\pc}[2]{\pcr{#2}， #1 }
 %example	\pc{第12页}{cite}		->	[3]，第12页
@@ -25,6 +33,10 @@
 
 %dash
 \newcommand{\cndash}{\raise0.1em\hbox{--}}
+
+%paren
+\newcommand{\cnparen}[1]{（#1）}
+\newcommand{\pr}[1]{ (#1) }
 
 
 
@@ -70,6 +82,10 @@
 \newcommand{\rep}[2]{[#1#2]}
 %example	\enucm{\rep a}n  	-> [a_1],\ldots,[a_n]
 %function in parenthesis
+%if you want to use [] directly, w/o an \enu command, 
+%use \rep{a}{} or define
+\newcommand{\repn}[1]{\rep{#1}{}}
+
 \newcommand{\func}[2]{f(#1#2)}
 %example	\enucm{\func a}n 	-> f(a_1),\ldots,f(a_n)
 
