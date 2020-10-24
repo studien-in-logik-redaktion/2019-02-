@@ -674,7 +674,7 @@ references = {参考文献}, % = \refname
 %定义article格式
 \DeclareFieldFormat[article,inproceedings,report]{title}{``\MakeSentenceCase{#1}''}	
 \DeclareFieldFormat[article]{pages}{#1}			%消除article的pp.
-\DeclareFieldFormat*{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
 \DeclareFieldFormat*{number}{\mkbibbold{(#1)}}
 
 \newbibmacro*{volume+number}{%
@@ -711,6 +711,7 @@ references = {参考文献}, % = \refname
 	\finentry}
 
 \DeclareFieldFormat[inproceedings,incollection]{pages}{pp. #1}
+\DeclareFieldFormat[inproceedings,incollection,book]{volume}{\mkbibbold{vol.\,1}}
 
 %定义inproceedings格式
 \DeclareBibliographyDriver{inproceedings}{% 					

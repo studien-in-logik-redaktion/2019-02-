@@ -164,7 +164,7 @@
 %定义article格式，report 采用 article 的标题
 \DeclareFieldFormat[article,report]{title}{``\MakeSentenceCase{#1}''}	
 \DeclareFieldFormat[article]{pages}{#1}			%消除article的pp.
-\DeclareFieldFormat*{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
 \DeclareFieldFormat*{number}{\mkbibbold{(#1)}}
 
 \newbibmacro*{volume+number}{%
